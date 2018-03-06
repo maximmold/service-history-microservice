@@ -16,7 +16,7 @@ public class ServiceHistoryController {
     @RequestMapping("serviceHistory/{fileNumber}")
     public ServiceHistory serviceHistory(@PathVariable Long fileNumber){
         ServiceHistory serviceHistory = serviceHistoryHashMap.get(fileNumber);
-        if (serviceHistory != null) {
+        if (serviceHistory == null) {
             serviceHistory = EnhancedRandom.random(ServiceHistory.class);
             serviceHistoryHashMap.putIfAbsent(fileNumber, serviceHistory);   
         }
