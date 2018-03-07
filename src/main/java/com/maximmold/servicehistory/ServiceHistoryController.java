@@ -18,6 +18,7 @@ public class ServiceHistoryController {
         ServiceHistory serviceHistory = serviceHistoryHashMap.get(fileNumber);
         if (serviceHistory == null) {
             serviceHistory = EnhancedRandom.random(ServiceHistory.class);
+            serviceHistory.setFileNumber(fileNumber);
             serviceHistoryHashMap.putIfAbsent(fileNumber, serviceHistory);   
         }
         return serviceHistory;
